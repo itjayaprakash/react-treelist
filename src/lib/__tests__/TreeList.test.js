@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Enzyme, { mount } from 'enzyme';
@@ -6,7 +6,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 import TreeList from '../TreeList';
 
-Enzyme.configure({adapter: new Adapter()});
+Enzyme.configure({ adapter: new Adapter() });
 
 const data = [{
     id: 0,
@@ -43,16 +43,16 @@ class RefreshWrapper extends Component {
 
     render() {
         const childrenWithProps = React.Children.map(this.props.children, child =>
-            React.cloneElement(child, { refresh: this.props.refresh ? this.state.counter : 1})
+            React.cloneElement(child, { refresh: this.props.refresh ? this.state.counter : 1 })
         );
-        return <div id="refresh" onClick={() => this.setState({counter: this.state.counter + 1})}>{childrenWithProps}</div>;
+        return <div id="refresh" onClick={() => this.setState({ counter: this.state.counter + 1 })}>{childrenWithProps}</div>;
     }
 }
 
 
 
 describe('<TreeList />', () => {
-	it('tree is refreshed whenever refresh value changes', () => {
+    it('tree is refreshed whenever refresh value changes', () => {
         let counter = 0;
         const options = {
             minimumColWidth: 100,
@@ -61,7 +61,7 @@ describe('<TreeList />', () => {
                 return "counter" + counter++;
             }
         };
-		const wrapper = mount(<RefreshWrapper refresh><TreeList data={data}
+        const wrapper = mount(<RefreshWrapper refresh><TreeList data={data}
             columns={columns}
             options={options}
             id={'id'}
@@ -73,7 +73,7 @@ describe('<TreeList />', () => {
         expect(wrapper.find('tr.counter1')).toHaveLength(1);
         expect(wrapper.find('tr.counter0')).toHaveLength(0);
     });
-    
+
     it('tree is not refreshed if refresh value does not change', () => {
         let counter = 0;
         const options = {
@@ -83,7 +83,7 @@ describe('<TreeList />', () => {
                 return "counter" + counter++;
             }
         };
-		const wrapper = mount(<RefreshWrapper refresh={false}><TreeList data={data}
+        const wrapper = mount(<RefreshWrapper refresh={false}><TreeList data={data}
             columns={columns}
             options={options}
             id={'id'}
@@ -94,5 +94,5 @@ describe('<TreeList />', () => {
         wrapper.find('#refresh').simulate('click');
         expect(wrapper.find('tr.counter0')).toHaveLength(1);
         expect(wrapper.find('tr.counter1')).toHaveLength(0);
-	});
+    });
 });

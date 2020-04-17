@@ -193,7 +193,7 @@ class Body extends Component {
     return (
       <div className='tgrid-body-wrapper'
         onScroll={this.onScroll} style={{ height: height }}>
-        <table className='tgrid-body-table' style={{ width: width}}>
+        <table className='tgrid-body-table' role="treetable" style={{ width: width}}>
           <Colgroup columns={columns}></Colgroup>
           {tableBody}
         </table>
