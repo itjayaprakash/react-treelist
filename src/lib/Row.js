@@ -61,8 +61,10 @@ class Row extends Component {
     const selectedClassName = selected ? "row-selected" : "";
     const className = [selectedClassName, getClassName(this.props.className, this.props.data)].join(' ');
 
+   
+
     return (
-      <tr className={className} onClick={this.handleSelectRow} aria-row="1">{cells}</tr>
+      <tr className={className} role="row" onClick={this.handleSelectRow} aria-expanded={this.props.expanded} tabIndex={this.props.expanded?"0":"-1"}>{cells}</tr>
     );
   }
 }
