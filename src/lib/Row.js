@@ -16,6 +16,8 @@ class Row extends Component {
   handleExpandToggle(e) {
     e.stopPropagation();
     this.props.onExpandToggle(this.props.data);
+    //e.currentTarget.style.background = "red";
+    e.target.focus();
   }
 
   handleSelectRow(e) {
