@@ -10,6 +10,7 @@ class RowCell extends Component {
   constructor(props) {
     super(props);
     this.displayName = 'RowCell';
+    this.ButtonToggle = React.createRef();
   }
   render() {
     const {
@@ -47,17 +48,26 @@ class RowCell extends Component {
 
     // expand or collapse icon
     let expandToggleIcon = null;
-    if (showExpandCollapse && !isExpanded) {
+    // if (showExpandCollapse && !isExpanded) {
       expandToggleIcon =
-        <button className="icon-expanded" aria-expanded="false" onClick={onExpandToggle}>
+
+        <button ref={this.ButtonToggle} className="icon-expanded" aria-expanded={showExpandCollapse && !isExpanded?'false':'true'} onClick={onExpandToggle}>
+         
+        {showExpandCollapse && !isExpanded?
           <svg height="24" viewBox="0 0 24 24" width="24"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z" /><path d="M0 0h24v24H0z" fill="none" /></svg>
-        </button>;
-    } else if (showExpandCollapse && isExpanded) {
-      expandToggleIcon =
-        <button className="icon-collasped" aria-expanded="true" onClick={onExpandToggle}>
+        : 
           <svg height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none" /><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z" /></svg>
+        } 
         </button>;
-    } else if (!showExpandCollapse) {
+
+    // } 
+    // else if (showExpandCollapse && isExpanded) {
+    //   expandToggleIcon =
+    //     <button className="icon-collasped" aria-expanded="true" onClick={onExpandToggle}>
+    //       <svg height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none" /><path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z" /></svg>
+    //     </button>;
+    // } 
+    if (!showExpandCollapse) {
       expandToggleIcon = <span className='i-dummy'></span>;
     }
     return (

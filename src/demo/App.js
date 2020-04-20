@@ -121,12 +121,12 @@ export default class App extends Component {
           }
           columns={
             [
-            {
-              title: 'ID',
-              field: 'id',
-              type: 'number',
-              width: 100,
-            }, 
+            // {
+            //   title: 'ID',
+            //   field: 'id',
+            //   type: 'number',
+            //   width: 100,
+            // }, 
             {
               title: 'Lab Type',
               field: 'name',

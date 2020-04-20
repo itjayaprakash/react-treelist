@@ -17,6 +17,7 @@ class HeaderCell extends Component {
   }
 
   handleClick() {
+    // Sorting Disabled UI - Jayaprakash
     //this.props.onSort(this.props.column.field);
   }
 

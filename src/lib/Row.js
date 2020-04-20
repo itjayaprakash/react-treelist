@@ -66,7 +66,7 @@ class Row extends Component {
    
 
     return (
-      <tr className={className} role="row" onClick={this.handleSelectRow} aria-expanded={this.props.expanded} tabIndex={this.props.expanded?"0":"-1"}>{cells}</tr>
+      <tr className={className} role="row" onClick={this.handleSelectRow}>{cells}</tr>
     );
   }
 }
