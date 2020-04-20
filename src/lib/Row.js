@@ -33,8 +33,9 @@ class Row extends Component {
     if (typeof expandColumn === 'undefined') {
       expandColumn = columns[0];
     }
-
+    
     return columns.map((col, index) => {
+      {/* colField Props Added UI - JP*/}
       return (
         <RowCell
           key={this.props.reactKey + '-col-' + index}
@@ -50,6 +51,7 @@ class Row extends Component {
           showExpandCollapse={canExpand && (expandColumn.field === col.field)}
           isExpanded={this.props.expanded}
           onExpandToggle={this.handleExpandToggle}
+          colField={col.field}
           ></RowCell>
       );
     });

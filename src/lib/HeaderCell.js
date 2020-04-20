@@ -17,7 +17,7 @@ class HeaderCell extends Component {
   }
 
   handleClick() {
-    this.props.onSort(this.props.column.field);
+    //this.props.onSort(this.props.column.field);
   }
 
   onResizeMouseEnter() {
@@ -56,6 +56,7 @@ class HeaderCell extends Component {
           <span className='tgrid-column-header-text'>
             {this.props.column.title}
           </span>
+          {this.props.column.eventTitle?<button>{this.props.column.eventTitle}</button>:null}
           {sortIndicator}
         </span>
         <div className='resize-indicator'
