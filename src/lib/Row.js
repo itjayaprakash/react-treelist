@@ -16,8 +16,10 @@ class Row extends Component {
   handleExpandToggle(e) {
     e.stopPropagation();
     this.props.onExpandToggle(this.props.data);
-    //e.currentTarget.style.background = "red";
-    e.target.focus();
+    /* Cursor Focus UI - JP */
+    const target = e.currentTarget;
+    target.blur()
+    setTimeout(function(){ target.focus() }, 800);
   }
 
   handleSelectRow(e) {
